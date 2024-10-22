@@ -4,20 +4,27 @@ This project predicts wine quality using the **Wine Quality** dataset from Kaggl
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
-2. [Data Loading](#data-loading)
-3. [Feature Analysis](#feature-analysis)
-4. [Data Cleaning](#data-cleaning)
-5. [Imbalanced Handling (SMOTE)](#imbalanced-handling-smote)
-6. [Feature Engineering](#feature-engineering)
-7. [Model Analysis](#model-analysis)
-8. [Model Optimization](#model-optimization)
-9. [Visualizations](#visualizations)
-10. [Future Work](#future-work)
-11. [Contact](#contact)
+2. [Dataset](#dataset)
+3. [Data Loading](#data-loading)
+4. [Feature Analysis](#feature-analysis)
+5. [Data Cleaning](#data-cleaning)
+6. [Imbalanced Handling (SMOTE)](#imbalanced-handling-smote)
+7. [Feature Engineering](#feature-engineering)
+8. [Model Analysis](#model-analysis)
+9. [Model Optimization](#model-optimization)
+10. [Visualizations](#visualizations)
+11. [Future Work](#future-work)
+12. [Contact](#contact)
 
 ## Project Overview
 
-The aim of this project is to build a machine learning pipeline that predicts wine quality based on a variety of chemical features. We use several classification models and evaluate their performance on this task. The final goal is to identify which model performs best and provides the most accurate predictions of wine quality. We also emphasize data preprocessing, feature engineering, and exploratory data analysis (EDA) to gain insights into the data and improve model accuracy.
+The aim of this project is to build a robust wine quality prediction model using machine learning techniques on the **Wine Quality** dataset. The process includes **Imbalanced Handling (SMOTE)** and detailed **Feature Engineering** steps such as **Extract New Features**, **Normalization**, and **Data type conversion**. 
+
+Modeling techniques include:  
+- **Hyperparameter Optimization Model**: RandomForest
+- **Neural Network Models**: PyTorch, Keras  
+
+Visualizations are presented in **Feature Analysis** and **Model Optimization**, focusing on data insights and performance metrics to identify the most accurate wine quality prediction model.
 
 ## Dataset
 
