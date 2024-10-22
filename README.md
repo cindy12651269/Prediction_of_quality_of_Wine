@@ -44,22 +44,27 @@ The **Wine Quality** dataset used in this project is sourced from the [UCI Machi
 
 The **target variable** is the **quality** of wine, scored between 0 and 10, where higher scores represent better quality.
 
-## Data Preprocessing
+## Data Loading
+In this section, we load and examine the raw data to understand its structure, variable types, and key statistics using the following scripts:
 
-Data preprocessing is a critical step in machine learning pipelines. In this project, we handle missing values, outliers, and normalization of features to prepare the data for modeling. The key steps include:
+- **Unassign_the_Runtime_for_Resetting.py**: Clears the runtime environment to reset cached variables and prevent data conflicts.
+- **Upload_the_data.py**: Loads the dataset and performs initial checks, including handling missing values and identifying data types.
+- **Definitions_for_the_Columns.py**: Offers detailed descriptions and explanations of each column to improve data comprehension.
 
-- **Handling Missing Data**: If any features contain missing values, we explore methods such as mean imputation or removing incomplete records.
-- **Normalization**: Given that the features have varying scales (e.g., alcohol percentage vs. pH), we standardize or normalize the data to ensure better performance for models sensitive to feature scaling, such as logistic regression or SVM.
-- **Outlier Detection**: Extreme values in features like volatile acidity or residual sugar could skew the model results, so we detect and, if necessary, remove outliers.
+### Key Steps:
+- Exploring the data: Inspecting missing values, data types, and class distribution.
+- Generating summary statistics for both numerical and categorical features.
 
-## Exploratory Data Analysis (EDA)
+## Feature Analysis  
+The Feature Analysis consists of five key parts: **Statistical Observation**, **Value Range**, **Numerical Features Relationship**, **Heatmap**, and **Class Imbalance**. These steps help in understanding the data distribution, relationships between features, and potential imbalances in the target variable. Further analysis will focus on gaining deeper insights to enhance model performance.
 
-Before building any model, we conduct EDA to understand the distribution of data, relationships between features, and correlation with the target variable. Some key steps in our EDA include:
 
-- **Histograms and Boxplots**: We visualize the distribution of each feature to understand their range, skewness, and identify potential outliers.
-- **Correlation Matrix**: This helps us understand the relationship between features and how they correlate with the target variable (wine quality).
-- **Pair Plots**: These allow us to explore relationships between pairs of features and their impact on wine quality.
-- **Feature Importance**: Using techniques such as permutation importance, we analyze which features contribute most to predicting wine quality.
+### Heatmap   
+The heatmap below shows the correlation between different features and the `churn` variable, helping to identify the most relevant variables for analysis.
+
+### Key Takeaways:
+
+### Visualizations
 
 ## Feature Engineering
 
