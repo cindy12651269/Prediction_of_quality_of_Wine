@@ -1,19 +1,19 @@
 # Prediction of Quality of Wine
 
-This project focuses on predicting wine quality using machine learning techniques. We utilize the **Wine Quality** dataset, which contains various chemical properties of wines. The objective is to explore and experiment with different models to see which one can best predict the quality of wines based on their characteristics.
+This project predicts wine quality using the **Wine Quality** dataset from Kaggle ([link]([https://www.kaggle.com/datasets/mehmetsabrikunt/internet-service-churn/data]). It involves data loading, cleaning, feature analysis, engineering, and addressing class imbalance with SMOTE. Machine learning models are evaluated and optimized to find the best predictor of wine quality based on chemical properties, with a structured workflow for each step.
 
 ## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Dataset](#dataset)
-- [Data Preprocessing](#data-preprocessing)
-- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
-- [Feature Engineering](#feature-engineering)
-- [Model Selection](#model-selection)
-- [Results](#results)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+1. [Project Overview](#project-overview)
+2. [Data Loading](#data-loading)
+3. [Feature Analysis](#feature-analysis)
+4. [Data Cleaning](#data-cleaning)
+5. [Imbalanced Handling (SMOTE)](#imbalanced-handling-smote)
+6. [Feature Engineering](#feature-engineering)
+7. [Model Analysis](#model-analysis)
+8. [Model Optimization](#model-optimization)
+9. [Visualizations](#visualizations)
+10. [Future Work](#future-work)
+11. [Contact](#contact)
 
 ## Project Overview
 
