@@ -104,7 +104,6 @@ The heatmap helps to identify feature pairs that may influence the outcome (qual
 
 ![Heatmap](./Images/Heatmap.png)
 
-
 ### Class Imbalance
 The bar plot below illustrates the distribution of wine quality ratings in the dataset. There is a noticeable class imbalance, with the majority of wines rated as **5** and **6**, while fewer wines are rated as **3**, **4**, **7**, or **8**.
 
