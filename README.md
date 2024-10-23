@@ -58,13 +58,61 @@ In this section, we load and examine the raw data to understand its structure, v
 ## Feature Analysis  
 The Feature Analysis consists of five key parts: **Statistical Observation**, **Value Range**, **Numerical Features Relationship**, **Heatmap**, and **Class Imbalance**. These steps help in understanding the data distribution, relationships between features, and potential imbalances in the target variable. Further analysis will focus on gaining deeper insights to enhance model performance.
 
+### Statistical Observation
+In this section, we perform an initial statistical dataset analysis using the `describe()` function. This provides summary statistics for each feature, including count, mean, standard deviation, minimum, 25th percentile, median (50th percentile), 75th percentile, and maximum values. These statistics help us understand the distribution and range of each feature, allowing for deeper insights into potential feature scaling or transformations needed for model training.
 
-### Heatmap   
-The heatmap below shows the correlation between different features and the `churn` variable, helping to identify the most relevant variables for analysis.
+### Value Range
+In this section, we analyze the range of values for each feature to understand their distribution and detect any potential outliers. Using the `describe()` function, we summarize each feature's key statistics such as minimum, maximum, mean, and quartiles (25th, 50th, and 75th percentiles). This analysis helps identify which features may require scaling or transformation. Additionally, boxplots visually represent the distribution, highlighting any outliers that could impact model performance.
 
-### Key Takeaways:
+- **Fixed Acidity**: The distribution is concentrated between 6 and 10, with some outliers above 12.
+- **Volatile Acidity**: Most data points fall between 0.2 and 0.6, with several outliers above 1.0.
+- **Citric Acid**: The majority of the values range between 0.0 and 0.6, with a few outliers above 1.0.
+- **Density**: Most values range from 0.994 to 0.998, with a few outliers slightly above 1.000.
+- **pH**: pH values are generally between 3.0 and 3.4, with some outliers below 3.0.
 
-### Visualizations
+**Boxplot Analysis: Overall Value Distribution**  
+The boxplots below show the distribution and range of values for each feature, highlighting potential outliers. The analysis helps identify which features may require scaling or transformation.
+
+![Boxplot of Features](./Images/Boxplot_of_Features.png)
+
+### Numerical Features Relationship
+In this section, we analyze the relationship between numerical features and wine quality using bar plots. The visualizations help us understand how different chemical properties of wine influence the quality rating.
+
+- **Fixed Acidity**: Shows no clear distinction about wine quality.
+- **Volatile Acidity**: The higher the quality of the red wine, the lower the volatile acidity.
+- **Citric Acid**: Higher quality wines tend to have higher citric acid content.
+- **Density**: Shows no distinction about wine quality.
+- **pH**: Also shows no clear relationship with wine quality.
+
+**Barplot Analysis: Feature Relationship with Quality**  
+The barplots illustrate the relationship between various features and wine quality. These visualizations help us understand how each feature influences the quality rating. For example, higher-quality wines tend to have lower volatile acidity and higher alcohol content.
+
+![Barplot of Features vs Quality](./Images/Barplot_of_Features_vs_Quality.png)
+   
+These insights guide us in selecting relevant features for further modeling and optimization.
+
+### Heatmap
+The heatmap below shows the correlation matrix between different features in the dataset. It visually highlights the strength of relationships between pairs of features. A correlation value close to 1 indicates a strong positive relationship, while values close to -1 indicate a strong negative relationship.
+
+Key insights from the heatmap:
+- **Citric Acid** shows a positive correlation with **fixed acidity** (0.67).
+- **Alcohol** has a moderate positive correlation with **quality** (0.48), suggesting that wines with higher alcohol content tend to have higher quality ratings.
+- **Density** and **fixed acidity** also exhibit a notable positive correlation (0.67).
+- **pH** and **fixed acidity** have a strong negative correlation (-0.68), indicating an inverse relationship between these two features.
+
+The heatmap helps to identify feature pairs that may influence the outcome (quality) and aids in feature selection for modeling.
+
+![Heatmap](./Images/Heatmap.png)
+
+
+### Class Imbalance
+The bar plot below illustrates the distribution of wine quality ratings in the dataset. There is a noticeable class imbalance, with the majority of wines rated as **5** and **6**, while fewer wines are rated as **3**, **4**, **7**, or **8**.
+
+To address this imbalance and prevent bias in the machine learning models, we applied **SMOTE** (Synthetic Minority Over-sampling Technique). SMOTE generates synthetic examples for the minority classes to balance the distribution, allowing models to learn more effectively from underrepresented quality ratings.
+
+This technique helps ensure that the model does not favor the majority classes and improves the overall performance in predicting wine quality.
+
+![Class Imbalance Barplot](./Images/Class_Imbalance_Barplot.png)
 
 ## Feature Engineering
 
