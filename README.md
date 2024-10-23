@@ -132,11 +132,37 @@ Steps:
 The output confirms that each class now has an equal number of samples (681 for each quality rating), making the dataset balanced for model training.
 
 ## Feature Engineering
-Feature engineering involves creating new features or modifying existing ones to improve the model's performance. In this project, we explore several feature engineering techniques, such as:
+### Extract New Features
+To improve the model’s predictive power, we engineered a new feature called `mso2`, which calculates the concentration of free sulfur dioxide in relation to pH. According to research, wines with a higher concentration of free sulfur dioxide generally have better quality ratings. This domain-specific feature adds valuable insight for the prediction of wine quality.
 
-- **Polynomial Features**: We create polynomial combinations of existing features (e.g., `pH^2`, `Alcohol * Residual Sugar`) to capture non-linear relationships.
-- **Interaction Terms**: Interaction terms are generated between features that may have a combined effect on the target variable.
-- **Binning**: We create bins for continuous variables like alcohol content and residual sugar to reduce noise and improve model interpretability.
+```python
+wine['mso2'] = wine['free sulfur dioxide'] / (1 + 10**wine['pH'] - 1.81)
+```
+
+
+### Normalization
+To ensure all features are on the same scale and improve model performance, we applied **Standard Scaling**. This process removes the mean and scales features to unit variance, which is critical for algorithms that are sensitive to the scale of input features.
+
+```python
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+feature_columns = wine.columns.difference(['quality'])
+wine[feature_columns] = scaler.fit_transform(wine[feature_columns])
+```
+
+### Data Type Conversion
+We converted the quality column into two categories: **good** and **bad**. Wines with a quality rating between 0 and 6.5 were categorized as **bad**, while those rated between 6.5 and 10 were categorized as **good**. After binning the data, we applied **Label Encoding** to transform these categorical labels into numeric values for modeling.
+
+```python
+bins = [0, 6.5, 10]
+group_names = ['bad', 'good']
+wine['quality'] = pd.cut(wine['quality'], bins=bins, labels=group_names)
+
+from sklearn.preprocessing import LabelEncoder
+label_quality = LabelEncoder()
+wine['quality'] = label_quality.fit_transform(wine['quality'])
+```
+This process prepares the dataset for further analysis and modeling by incorporating new features, standardizing the scales, and converting target variables to numeric form.
 
 ## Model Analysis
 We experiment with a variety of classification models to predict wine quality. These models include:
