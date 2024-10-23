@@ -12,9 +12,8 @@ This project predicts wine quality using the **Wine Quality** dataset from Kaggl
 7. [Feature Engineering](#feature-engineering)
 8. [Model Analysis](#model-analysis)
 9. [Model Optimization](#model-optimization)
-10. [Visualizations](#visualizations)
-11. [Future Work](#future-work)
-12. [Contact](#contact)
+10. [Future Work](#future-work)
+11. [Contact](#contact)
 
 ## Project Overview
 
@@ -113,16 +112,33 @@ This technique helps ensure that the model does not favor the majority classes a
 
 ![Class Imbalance Barplot](./Images/Class_Imbalance_Barplot.png)
 
-## Feature Engineering
+## Data Cleaning
+In this section, we ensure that the dataset is properly cleaned and ready for analysis. We begin by inspecting the dataset for missing values and verifying the data types of each feature. As shown in the output of the `info()` function, there are no missing values in the dataset, and all features have the appropriate data types.
 
+Next, we perform a content review to visually inspect the data, ensuring that all entries appear valid and there are no obvious anomalies or incorrect values. This step is crucial to avoid errors in further analysis and modeling. Since no missing or invalid data points were detected, no imputation or data correction steps were necessary for this dataset.
+
+This clean dataset will now be used for feature engineering and model building.
+
+![Missing Values Check](./Images/Missing_Values_Check.png)
+
+## Imbalanced Handling (SMOTE)
+To address the imbalanced distribution of wine quality ratings, we applied **SMOTE** (Synthetic Minority Over-sampling Technique). This technique oversamples the minority classes to balance the dataset.
+
+Steps:
+1. Dropped the `quality` column from the feature set (`X`) and assigned it to the target variable (`y`).
+2. Applied SMOTE to generate synthetic samples for the minority classes.
+3. Merged the resampled data back into a balanced dataset.
+
+The output confirms that each class now has an equal number of samples (681 for each quality rating), making the dataset balanced for model training.
+
+## Feature Engineering
 Feature engineering involves creating new features or modifying existing ones to improve the model's performance. In this project, we explore several feature engineering techniques, such as:
 
 - **Polynomial Features**: We create polynomial combinations of existing features (e.g., `pH^2`, `Alcohol * Residual Sugar`) to capture non-linear relationships.
 - **Interaction Terms**: Interaction terms are generated between features that may have a combined effect on the target variable.
 - **Binning**: We create bins for continuous variables like alcohol content and residual sugar to reduce noise and improve model interpretability.
 
-## Model Selection
-
+## Model Analysis
 We experiment with a variety of classification models to predict wine quality. These models include:
 
 - **Logistic Regression**: A linear model used for binary classification, applied here to predict multi-class labels by converting the quality score into a classification problem.
@@ -133,7 +149,7 @@ We experiment with a variety of classification models to predict wine quality. T
 
 We use **GridSearchCV** to fine-tune hyperparameters for each model to achieve optimal performance.
 
-## Results
+## Model Optimization
 
 The models are evaluated using various performance metrics, including:
 
@@ -145,22 +161,10 @@ The models are evaluated using various performance metrics, including:
 
 The final model achieves an accuracy of approximately **X%** on the test set (fill in with actual results after training and testing).
 
-## Usage
-
-1. **Data Loading**: The dataset is loaded and split into training and validation sets.
-2. **Model Training**: Multiple models are trained on the training set, and their performance is evaluated.
-3. **Model Evaluation**: The model with the best performance is selected based on accuracy, precision, recall, and F1-score.
-4. **Predictions**: The final model is used to predict the quality of wine on new unseen data.
-
-To run the project locally, follow these steps:
-
-- Open the Jupyter notebook file `Prediction_of_quality_of_Wine.ipynb`.
-- Run all the cells to load data, preprocess it, train models, and evaluate their performance.
-
-## Contributing
+## Future Work
 
 If you want to contribute to this project, feel free to fork the repository and submit a pull request. Improvements in model performance or suggestions for new features are always welcome.
 
-## License
+## Contact
 
 This project is licensed under the MIT License. See the LICENSE file for more information.
