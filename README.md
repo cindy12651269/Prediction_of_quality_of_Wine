@@ -260,6 +260,11 @@ The model’s training and validation losses steadily decreased over 100 epochs,
 During training, both loss and accuracy remained constant across epochs, with no actual learning taking place, signaling that further investigation is needed to diagnose the issues with the model.
 
 ## Future Work
+1. **Advanced Hyperparameter Tuning**: Implement more comprehensive hyperparameter optimization using GridSearchCV or Bayesian optimization to further improve model performance.
+
+2. **Alternative Model Architectures**: Experiment with models like Gradient Boosting, XGBoost, or deep learning to capture additional complexities in the data and potentially enhance accuracy.
+
+3. **Explainability and Interpretability**: Use SHAP or LIME to interpret model predictions, offering insights into feature importance and making the model more transparent for end-users.
 
 ## Contact  
 For any questions or collaboration opportunities, please reach out to:
