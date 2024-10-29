@@ -260,8 +260,11 @@ The model’s training and validation losses steadily decreased over 100 epochs,
 During training, both loss and accuracy remained constant across epochs, with no actual learning taking place, signaling that further investigation is needed to diagnose the issues with the model.
 
 ## Future Work
-If you want to contribute to this project, feel free to fork the repository and submit a pull request. Improvements in model performance or suggestions for new features are always welcome.
 
-## Contact
+## Contact  
+For any questions or collaboration opportunities, please reach out to:
 
-This project is licensed under the MIT License. See the LICENSE file for more information.
+**Cindy Lin**  
+[GitHub Profile](https://github.com/cindy12651269)  
+[Google Colab Project Link](https://colab.research.google.com/drive/14bcYKLG8YQBT7Gfm3Rrzt47Z8dTr5rpw#scrollTo=3mLWPd95EBxL)  
+
