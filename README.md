@@ -197,20 +197,69 @@ Building and evaluating different machine learning models using the following sc
 
 Each model is evaluated using metrics such as **accuracy**, **precision**, **recall**, and **F1-score** to assess classification performance and compare results.
 
-## Model Optimization
+## Model Optimization  
+Optimizing different models to achieve the best performance using the following scripts:
 
-The models are evaluated using various performance metrics, including:
+## Hyperparameter Optimization
+Fine-tuning the **Random Forest** model to achieve optimal performance using the following script:
 
-- **Accuracy**: The percentage of correctly classified instances.
-- **Precision**: The proportion of predicted positive cases that are actually positive.
-- **Recall**: The proportion of actual positive cases that were predicted correctly.
-- **F1 Score**: The harmonic mean of precision and recall, providing a balanced metric for classification.
-- **Confusion Matrix**: This is used to visualize the true positives, true negatives, false positives, and false negatives for the predictions.
+- **RandomForest_Hyperparameter_Optimization.py**:  
+  - Utilizes **RandomizedSearchCV** with a defined parameter grid to efficiently explore various combinations for `n_estimators` and `max_depth`.
+  - **Parameter Grid**:
+    - `max_depth`: [5, 10, 20]
+    - `n_estimators`: [10, 50, 100, 150]
+  - **Best Parameters**: `{'n_estimators': 100, 'max_depth': 20}`
+  - **Performance**: After tuning, the optimized model achieved an accuracy of **0.87** on the test set, with strong precision and recall across classes, as shown in the classification report.
 
-The final model achieves an accuracy of approximately **X%** on the test set (fill in with actual results after training and testing).
+This step enhances the model's predictive power, balancing accuracy and generalization by finding the best hyperparameters for `n_estimators` and `max_depth`.
+
+## Neural Network Model (NN Model)
+Implementing neural networks using **PyTorch** to capture complex patterns in the data.
+
+### PyTorch Implementation
+The model architecture is defined with multiple layers to capture intricate data relationships. Below are the main components and settings used:
+
+- **Model Architecture**:
+  - The neural network includes two hidden layers with 64 and 32 neurons, respectively, followed by a final output layer.
+  - The **ReLU activation** function is applied in the hidden layers to introduce non-linearity, while a **Sigmoid activation** is used in the output layer for binary classification.
+
+- **Model Training**:
+  - **Optimizer**: Adam optimizer with a learning rate of `0.001` is used to speed up convergence.
+  - **Loss Function**: Binary Cross Entropy (BCE) Loss is used as this is a binary classification task.
+  - **Data Preparation**: Data is converted to tensors and moved to GPU (if available) for faster computation.
+
+- **Additional Features**:
+  - **Early Stopping**: Implemented with a patience of 10 epochs to prevent overfitting.
+  - **Batch Size and Epochs**: The model is trained with a batch size of 64 for 100 epochs.
+
+### Model Performance
+- **Accuracy**: The model achieved an overall accuracy of **0%** on the test set, indicating a failure to classify correctly across classes.
+- **Classification Metrics**: The model's precision, recall, and F1-score are zero across most classes except for certain cases with zero division handling. This suggests significant issues in the model's ability to generalize and accurately classify the target classes.
+
+The results indicate that further tuning or alternative modeling approaches may be necessary to improve performance.
+
+### Training and Validation Loss Over Epochs
+The model’s training and validation losses steadily decreased over 100 epochs, with minimal overfitting. Early stopping was set to prevent unnecessary training if validation loss stabilized.
+
+![Training and Validation Loss](./Images/Training_and_Validation_Loss_over_Epochs.png)
+
+### Key Features of the PyTorch Model
+
+- **Batch Normalization**: Added to each hidden layer for more stable training.
+- **Early Stopping**: Prevents overfitting by monitoring validation loss.
+- **Learning Rate Adjustment**: Dynamically adjusted learning rate to ensure smooth convergence.
+
+### Keras Model Analysis
+
+- **Keras.py**: This script builds a Keras model using TensorFlow, with dropout layers to mitigate overfitting. A custom **focal loss** function is implemented to address class imbalance effectively.
+
+### Keras Model Performance
+- The Keras model reached a **test accuracy of 0%** and an **F1-score of 0**. This indicates potential issues with the training process or model configuration, as no meaningful predictions were achieved on the test set.
+
+### Training and Validation Trends
+During training, both loss and accuracy remained constant across epochs, with no actual learning taking place, signaling that further investigation is needed to diagnose the issues with the model.
 
 ## Future Work
-
 If you want to contribute to this project, feel free to fork the repository and submit a pull request. Improvements in model performance or suggestions for new features are always welcome.
 
 ## Contact
