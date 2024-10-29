@@ -164,16 +164,38 @@ wine['quality'] = label_quality.fit_transform(wine['quality'])
 ```
 This process prepares the dataset for further analysis and modeling by incorporating new features, standardizing the scales, and converting target variables to numeric form.
 
-## Model Analysis
-We experiment with a variety of classification models to predict wine quality. These models include:
+## Model Analysis  
+Building and evaluating different machine learning models using the following scripts:
 
-- **Logistic Regression**: A linear model used for binary classification, applied here to predict multi-class labels by converting the quality score into a classification problem.
-- **Decision Tree**: A model that splits the data into branches to predict the quality of wine. It is simple and interpretable but prone to overfitting.
-- **Random Forest**: An ensemble model that builds multiple decision trees and averages their predictions, often yielding better results than a single decision tree.
-- **Support Vector Machines (SVM)**: A model that finds the optimal hyperplane that separates different classes. SVM is particularly useful for complex, non-linear boundaries.
-- **Gradient Boosting**: A boosting algorithm that builds models sequentially, each new model correcting errors made by the previous one. This often leads to high accuracy.
+- **Split_training_and_test_sets.py**: Splits the dataset into training, validation, and testing sets using an 80-20 split strategy for train+validation and test sets, and further splits the train+validation set into separate training and validation sets.
+  - Data distribution:
+    - **Training set**: 2,614 samples
+    - **Validation set**: 654 samples
+    - **Test set**: 818 samples
 
-We use **GridSearchCV** to fine-tune hyperparameters for each model to achieve optimal performance.
+  - Class distribution:
+    - **Training set**:  
+      - Quality 3: 436  
+      - Quality 4: 436  
+      - Quality 5: 436  
+      - Quality 6: 435  
+      - Quality 7: 435  
+      - Quality 8: 436  
+    - **Validation set**:  
+      - Each quality level (3 to 8): 109 samples  
+
+- **Train_the_model.py**: Trains models such as **Logistic Regression** and **Random Forest** using training data.  
+  - **RandomForestClassifier**:  
+    - Evaluated using cross-validation on the training set, achieving consistent performance scores around 0.82 across 5 folds.  
+    - Predicted results on the test set with an overall **accuracy** of 87% and detailed performance metrics by class.  
+![RandomForest Performance](./Images/RandomForest_Performance.png)
+  
+  - **Logistic Regression**:  
+    - Scaled features using **StandardScaler** to ensure consistent feature distribution.  
+    - Achieved an overall **accuracy** of 61% on the test set, with lower precision and recall than Random Forest.  
+![LogisticRegression Performance](./Images/Logistic_Regression_Performance.png)
+
+Each model is evaluated using metrics such as **accuracy**, **precision**, **recall**, and **F1-score** to assess classification performance and compare results.
 
 ## Model Optimization
 
